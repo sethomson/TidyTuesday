@@ -32,7 +32,7 @@ joined_data_cleaned %>%
   ggplot(aes(x=SEASON_FACTOR,fill=success_any))+
     geom_bar()+
     theme_classic()+
-    labs(title="Seasonality of Himalayan Mountaineering Expeditions", x="Season", y="number of expeditions, 2020-2024", fill="success, any route")+
-    scale_fill_manual(labels = c("none", "success"), values=c("#CC79A7", "#009E73"))
+    labs(title="Seasonality of Himalayan Mountaineering Expeditions", x="Season", y="number of expeditions, 2020-2024", fill="success?")+
+    scale_fill_manual(labels = c("no", "yes"), values=c("#CC79A7", "#009E73"))
 ```
 
