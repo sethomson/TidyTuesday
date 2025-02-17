@@ -1,0 +1,28 @@
+---
+title: "TidyTuesday: Law Enforcement Agencies"
+author: "Sarah Thomson"
+format: 
+  html:
+   embed-resources: true
+---
+
+```{r load libraries, include = FALSE}
+library(tidyverse)
+```
+
+Research Question: How does participation of law enforcement agencies in NIBRS reporting vary between states?
+
+```{r read data, message = FALSE}
+agencies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-18/agencies.csv')
+```
+
+```{r fig.dim=c(12, 5)}
+agencies %>%
+  ggplot(aes(x=reorder(state_abbr, is_nibrs), fill=is_nibrs))+
+  geom_bar(position = "fill", width = 0.95)+
+  scale_fill_discrete(type=c("orange","blue4"))+
+  theme_classic()+
+  labs(x="State", y="proportion", fill="NIBRS Participant", title="Participation of Law Enforcement Agencies in NIBRS Crime Reporting by State")
+```
+
+Interpretation: The plot above shows that NIBRS participation varies widely by state, with only around 10% of Pennsylvania law enforcement agencies in the dataset participating compared to 100% Vermont agencies. This dataset only includes agencies that are included in the FBI's database, however, which might not reflect all agencies (such as small local agencies). It also entirely ignores alternative "unofficial" community support systems that deal with crime in a non-punitive manner.
