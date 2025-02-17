@@ -25,4 +25,4 @@ agencies %>%
   labs(x="State", y="proportion", fill="NIBRS Participant", title="Participation of Law Enforcement Agencies in NIBRS Crime Reporting by State")
 ```
 
-Interpretation: The plot above shows that NIBRS participation varies widely by state, with only around 10% of Pennsylvania law enforcement agencies in the dataset participating compared to 100% Vermont agencies. This dataset only includes agencies that are included in the FBI's database, however, which might not reflect all agencies (such as small local agencies). It also entirely ignores alternative "unofficial" community support systems that deal with crime in a non-punitive manner.
+Interpretation: The plot above shows that NIBRS participation varies widely by state, with only around 10% of Pennsylvania law enforcement agencies in the dataset participating compared to 100% Vermont agencies. This dataset only includes agencies that are included in the FBI's database, however, which might not reflect all agencies (such as small local agencies). True proportions of participation might therefore be lower than these data suggest.
