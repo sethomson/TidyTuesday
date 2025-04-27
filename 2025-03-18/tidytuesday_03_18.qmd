@@ -1,0 +1,31 @@
+---
+title: "Palm Trees Data Exploration"
+subtitle: "Tidy Tuesday 2025-03-18" 
+author: "Sarah Thomson"
+date: 2025-04-27
+format: html
+editor: source
+---
+
+```{r message=FALSE}
+library(tidyverse)
+```
+
+
+```{r data, message=FALSE}
+palmtrees <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-18/palmtrees.csv')
+```
+
+Research question: Is there a relationship between the number of leaves a palm has and the size of its fruit? Maybe a palm with more leaves can produce bigger fruit. Does this relationship change for different subfamilies?
+
+```{r}
+palmtrees %>%
+  ggplot(aes(y=max_fruit_width_cm, x=max_leaf_number))+
+  geom_point()+
+  geom_smooth(method="lm", se=FALSE)+
+  facet_wrap(~palm_subfamily)+
+  theme_classic()+
+  labs(x="maximum number of leaves", y="maximum fruit width (cm)", title="Number of leaves vs size of fruit in different palm subfamilies")
+```
+
+Interpretation: The relationship between number of leaves and size of fruit varies depending on subfamily. In Arecoideae and Coryphoideae, there seems to be a positive correlation. This is less clear in the other subfamilies, with a possible negative correlation in Calamoideae. 
